@@ -7,27 +7,137 @@
 		<meta charset="utf-8">
 		<title>HomeWork N°1</title>
 
+		<link rel="stylesheet" href="style.css">
+
 	</head>
 
 
 	<body>
 
-		<h1> Homework N°1 </h1>
-		<h2> Thomas Charbonnet </h2>
-
-
-
-
 		<script src = "maRequete.js"> </script>
 
+		<header> 
 
-	    <h1> <span id="data1"></span> - <span id="data2"></span> </h1>
+			<div> <h1> <span id="data1"></span> </h1> </div>
+
+			<div> - </div>
+
+
+			<div> <h2> Homework N°1 </h2> </div>
+
+
+			<div> <p> Creator : Thomas Charbonnet </p> </div>
+
+		</header>
+
+
+
+		<body> 
+
+			<table> 
+
+
+				<caption> someData </caption>
+
+				<thead>
+
+					<tr>
+
+						<td> a </td> 
+						<td> b </td> 
+						<td> c </td>
+
+					</tr>
+					
+
+				</thead>
+
+
+
+				<tbody>
+
+					<tr>
+					
+						<td> <span id="data0.1"></span> </td>
+						<td> <span id="data0.2"></span> </td>
+						<td> <span id="data0.3"></span> </td>
+
+
+					</tr>
+
+				</tbody>
+
+
+			</table>
+
+
+
+			<table> 
+
+
+				<caption> someData </caption>
+
+				<thead>
+
+					<tr>
+
+						<td> 0 </td>
+						<td> 1 </td>
+						<td> 2 </td>
+						<td> 3 </td>
+
+					</tr>
+					
+
+				</thead>
+
+
+
+				<tbody>
+
+					<tr>
+					
+						<td> <span id="data2"></span> </td>
+						<td> <span id="data4"></span> </td>
+						<td> <span id="data6"></span> </td>
+						<td> <span id="data8"></span> </td>
+
+					</tr>
+
+					<tr>
+					
+						<td> <span id="data3"></span> </td>
+						<td> <span id="data5"></span> </td>
+						<td> <span id="data7"></span> </td>
+						<td> <span id="data9"></span> </td>
+
+					</tr>
+
+				</tbody>
+
+
+			</table>
+
+		</body>
+
 
 
 	    <script type="text/javascript">
 
-	      	document.getElementById("data1").innerHTML = nameOfTheSubject;
-	        document.getElementById("data2").innerHTML = courseName;
+	        document.getElementById("data1").innerHTML = courseName;
+	        document.getElementById("data2").innerHTML = data.someData[0][0];
+	        document.getElementById("data3").innerHTML = data.someData[0][1];
+	        document.getElementById("data4").innerHTML = data.someData[1][0];
+	        document.getElementById("data5").innerHTML = data.someData[1][1];
+	        document.getElementById("data6").innerHTML = data.someData[2][0];
+	        document.getElementById("data7").innerHTML = data.someData[2][1];
+	        document.getElementById("data8").innerHTML = data.someData[3][0];
+	        document.getElementById("data9").innerHTML = data.someData[3][1];
+
+
+	        document.getElementById("data0.1").innerHTML = data.scores["a"];
+	        document.getElementById("data0.2").innerHTML = data.scores["b"];
+	        document.getElementById("data0.3").innerHTML = data.scores["c"];
 	        
 	    </script>
 

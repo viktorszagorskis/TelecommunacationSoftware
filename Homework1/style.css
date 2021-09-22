@@ -1,0 +1,22 @@
+
+body{
+
+	background-color: rgb(48, 56, 65);
+	color:  white;
+	font-size: 15px;
+
+}
+
+header{
+
+	text-align: center;
+	border-bottom: 3px white dashed;
+
+}
+
+
+table{
+
+	border:  1px white solid;
+
+}
