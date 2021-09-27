@@ -20,6 +20,9 @@ body{
 
 	color: white;
 	text-decoration: none;
+
+	margin-right: 30px;
+	margin-left: 30px;
 }
 
 .headerSecondLine{
@@ -27,7 +30,6 @@ body{
 	display: flex;
 	flex-direction: row;
 
-	color: darkred;
 	background-color: rgb(48, 56, 65);
 
 	height: 50px;
@@ -46,6 +48,7 @@ section{
 	align-items: center;
 
 	margin: 20px;
+
 }
 
 .sectionTextBox{
@@ -55,6 +58,10 @@ section{
 	margin-top:  10px;
 	margin-bottom: 10px;
 
+	
+	overflow: auto;
+	word-wrap:  auto;
+
 }
 
 input{
@@ -62,6 +69,9 @@ input{
 	height: 30px;
 
 	font-size: 20px;
+
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .sectionTable{
@@ -72,6 +82,12 @@ input{
 	border: 1px solid black;
 
 	width: 60%;
+
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+	overflow: auto;
+	word-wrap:  auto;
 }
 
 .zoneData{
@@ -85,6 +101,27 @@ input{
 .box{
 
 	border: 1px solid black;
-
 	width: 50%;
+
+}
+
+
+.titleBox{
+
+	align-items: center;
+}
+
+footer{
+
+	color: white;
+	background-color: rgb(48, 56, 65);
+
+	height: 50px;
+	font-size: 20px;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+
 }

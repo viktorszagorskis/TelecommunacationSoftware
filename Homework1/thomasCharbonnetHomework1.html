@@ -28,11 +28,12 @@
 
 					console.log(data);
 
-					let nameOfTheSubject = data.course;
-					let courseActive = data.courseActive;
-					let courseName = data.courseName;
-					let date = data.date;
-					let year = data.releaseYear;
+					document.getElementById("dataCourse").innerHTML = "course : " + data.course;
+					document.getElementById("dataActive").innerHTML = "course Active : " + data.courseActive;
+					document.getElementById("dataName").innerHTML = "course Name : " + data.courseName;
+					document.getElementById("dataDrop").innerHTML = "dropped Students : " + data.droppedStudents;
+					document.getElementById("dataDate").innerHTML = "date : " + data.date;
+					document.getElementById("dataYear").innerHTML = "release Year : " + data.releaseYear;
 
 
 	        		document.getElementById("data0.1").innerHTML = data.scores["a"];
@@ -121,7 +122,7 @@
 
 			<div class="sectionTable">
 
-				<div>
+				<div class="titleBox">
 
 					<h2> Data </h2>
 
@@ -129,12 +130,30 @@
 
 				<div class="zoneData">
 
-					<div class="box">qdfqf</div>
+					<div class="box">
+						
+						<ul>
+							
+							<li id = "dataCourse"> course : </li>
+
+							<li id = "dataActive"> course Active : </li>
+
+							<li id = "dataName"> course Name : </li>
+
+							<li id = "dataDate"> date : </li>
+
+							<li id = "dataDrop"> dropped Students : </li>
+
+							<li id = "dataYear"> release Year : </li>
+
+						</ul>
+
+					</div>
 					
 					<div class="box">
 						
 
-												<table> 
+						<table> 
 
 
 							<caption> someData </caption>
@@ -196,7 +215,7 @@
 
 						</table>
 
-						
+
 					</div>
 
 				</div>
@@ -206,9 +225,15 @@
 
 		</section>
 
+		<footer>
 
+			<div>
+				
+				<p> Last Update : 27/09/2021 </p>
 
-
+			</div>
+			
+		</footer>
 
 	</body>
 
