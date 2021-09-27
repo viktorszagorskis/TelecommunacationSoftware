@@ -5,18 +5,48 @@ body{
 	color:  white;
 	font-size: 15px;
 
+	justify-content: center;
 }
 
-header{
+
+
+header,section{
 
 	text-align: center;
 	border-bottom: 3px white dashed;
 
+	padding:  20px;
+	margin:  20px;
 }
+
+
 
 
 table{
 
-	border:  1px white solid;
+	border = 1px solid white;
+	width =  100%;
 
+}
+
+
+
+#monTableau{
+
+	border: 1px solid white;
+	width: 40%;
+
+	flex-direction: column;
+
+}
+
+
+
+#zoneData{
+
+	flex-direction: row;
+
+	border: 1px solid white;
+
+	 background-color: red;
 }
