@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<meta charset="utf-8">
 	<title> HomeWork N°1 </title>
 
 	<link rel="icon" type="image/png" href="logoRTU.png">
-
-
 	<link rel="stylesheet" href="styleTCHomework.css">
 
 </head>
@@ -15,102 +14,146 @@
 
 	<script> 
 
-				function myRequest(){
+		class myRequest {
 
-					// je définis la cible de ma requête
-					const url = "https://4v9r83qfo4.execute-api.eu-central-1.amazonaws.com/dev";
+			// i creat this object because, i enjoy to creat reusable code
 
-					// je conçois ma requête
-					let maRequest = new XMLHttpRequest();
+			constructor(url){
+				this.url = url;
 
-					// je donne des propriétés à ma requête 
-					maRequest.open("GET",url,false);
+				// I creat my request
+				let maRequest = new XMLHttpRequest();
+				// I add some parameter to my request
+				maRequest.open("GET",url,false);
+				// I send my requestion
+				maRequest.send(null);
+				// I capture the data generate by my request
+				this.data = JSON.parse(maRequest.responseText);
 
-					maRequest.send( null);
+			}
 
-					data = JSON.parse(maRequest.responseText);
+			afficher(){
+				// this method is used in order to print all the 
+				// data generate by the constructor on the web 
+				// terminal
+				console.log(this.data);
+			}
 
-					console.log(data);
+			cleanData(){
+				// this method is used in order to write the data
+				// generate by the request on 2 lists
 
-					document.getElementById("dataCourse").innerHTML = "course : " + data.course;
-					document.getElementById("dataActive").innerHTML = "course Active : " + data.courseActive;
-					document.getElementById("dataName").innerHTML = "course Name : " + data.courseName;
-					document.getElementById("dataDrop").innerHTML = "dropped Students : " + data.droppedStudents;
-					document.getElementById("dataDate").innerHTML = "date : " + data.date;
-					document.getElementById("dataYear").innerHTML = "release Year : " + data.releaseYear;
+				let data = this.data;
+
+				this.listData = [
+					"course : " + data.course, "course Active : " + data.courseActive, "course Name : " + data.courseName,
+					"dropped Students : " + data.droppedStudents, "date : " + data.date,"release Year : " + data.releaseYear,
+					data.someData[0][0],data.someData[0][1],data.someData[1][0], data.someData[1][1],
+					data.someData[2][0],data.someData[2][1],data.someData[3][0],data.someData[3][1],
+			        data.scores["a"], data.scores["b"], data.scores["c"]
+				];
 
 
-	        		document.getElementById("data0.1").innerHTML = data.scores["a"];
-	        		document.getElementById("data0.2").innerHTML = data.scores["b"];
-	        		document.getElementById("data0.3").innerHTML = data.scores["c"];
+				this.listTarget = [
+					"dataCourse","dataActive","dataName","dataDrop","dataDate","dataYear",
+					"data2","data3","data4","data5","data6","data7","data8","data9",
+			        "data0.1","data0.2","data0.3"
+				];
+
+			}
+
+			printDataOnHTML(){
+				// this method is used in order to write the data 
+				// saved on my HTML code
+
+				for(let i = 0 ; i < 17 ; i++){
+
+					document.getElementById(this.listTarget[i]).innerHTML = this.listData[i];
+
+				}
+
+			}
 
 
-	        		let list_target = ["data2","data3","data4","data5","data6","data7",
-	        						   "data8","data9","data0.1","data0.2","data0.3"];
+			generateGraph1(){
+				// this method creat the first graph
 
-	        		let list_data = [data.someData[0][0],data.someData[0][1],data.someData[1][0],
-	        						 data.someData[1][1],data.someData[2][0],data.someData[2][1],
-	        						 data.someData[3][0],data.someData[3][1] ];
+				let data = this.data;
 
-					for (let i = 0 ; i < 8 ; i++){
+				var xValues = ["a","b","c"];
+				var yValues = [data.scores["a"],data.scores["b"],data.scores["c"]];
+				var barColors = ["red", "green","blue"];
 
-						document.getElementById(list_target[i]).innerHTML = list_data[i];
-
+				new Chart("monCanvas", {
+					type: "bar",
+					data: {
+						labels: xValues,
+						datasets: [{
+							backgroundColor: barColors,
+							data: yValues
+							}]
+						},
+						options: {
+							legend: {display: false},
+							title: {
+							    display: true,
+							    text: "scores"
+							}
+						}
 					}
+				);
+			}
 
+			generateGraph2(){
+				// this method creat the second graph
 
-
-					var xValues = ["a","b","c"];
-					var yValues = [data.scores["a"],data.scores["b"],data.scores["c"]];
-					var barColors = ["red", "green","blue"];
-
-					new Chart("monCanvas", {
-					  type: "bar",
-					  data: {
-					    labels: xValues,
-					    datasets: [{
-					      backgroundColor: barColors,
-					      data: yValues
-					    }]
-					  },
-					  options: {
-					    legend: {display: false},
-					    title: {
-					      display: true,
-					      text: "scores"
-					    }
-
-					  }
-					});
-
-
+				let data = this.data;
 
 				var xyValues = [
-				  {x:data.someData[0][0], y:data.someData[0][1]},
-				  {x:data.someData[1][0], y:data.someData[1][1]},
-				  {x:data.someData[2][0], y:data.someData[2][1]},
-				  {x:data.someData[3][0], y:data.someData[3][1]}
+					{x:data.someData[0][0], y:data.someData[0][1]},
+					{x:data.someData[1][0], y:data.someData[1][1]},
+					{x:data.someData[2][0], y:data.someData[2][1]},
+					{x:data.someData[3][0], y:data.someData[3][1]}
 				];
 
 				new Chart("myChart", {
-				  type: "scatter",
-				  data: {
-				    datasets: [{
-				      pointRadius: 4,
-				      pointBackgroundColor: "rgb(0,0,255)",
-				      data: xyValues
-				    }]
-				  },
-				  options: {
-				    legend: {display: false},
-				    scales: {
-				      xAxes: [{ticks: {min: 0, max:50}}],
-				      yAxes: [{ticks: {min: 0, max:5}}],
-				    }
-				  }
+					type: "scatter",
+					data: {
+						datasets: [{
+						    pointRadius: 4,
+						    pointBackgroundColor: "rgb(0,0,255)",
+						    data: xyValues
+						}]
+					},
+					options: {
+						legend: {display: false},
+						scales: {
+						    xAxes: [{ticks: {min: 0, max:50}}],
+						    yAxes: [{ticks: {min: 0, max:5}}],
+						}
+					}
 				});
+			}
 
-				}
+
+		}
+
+
+
+
+		function myFuction(){
+			// i creat a variable. On this variable, you can find my target
+			const url = "https://4v9r83qfo4.execute-api.eu-central-1.amazonaws.com/dev";
+
+			// i creat my object
+			const request = new myRequest(url);
+			// now, i call my methods
+			request.afficher();// print on the termianl
+			request.cleanData();// clean the data
+			request.printDataOnHTML();// print the data on the terminal
+			request.generateGraph1();//creat the first graph
+			request.generateGraph2();//creat the second graph
+		}
 
 
 
@@ -173,7 +216,7 @@
 
 			<div>
 
-				<input type = "button" onclick= "myRequest()" value = "Click Me">
+				<input type = "button" onclick= "myFuction()" value = "Click Me">
 
 			</div>
 
