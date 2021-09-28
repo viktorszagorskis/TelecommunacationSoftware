@@ -64,6 +64,16 @@ section{
 
 }
 
+a{
+	color: rgb(48, 56, 65);
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: underline;
+	color:  rgb(143,33,66);
+}
+
 input{
 	width: 250px;
 	height: 30px;
@@ -124,4 +134,18 @@ footer{
 	justify-content: center;
 	align-items: center;
 
+}
+
+
+#monCanvas{
+
+	width: 300px; 
+	height: 300px;
+}
+
+
+.sectionGraph{
+
+	display: flex;
+	flex-direction: row;
 }
